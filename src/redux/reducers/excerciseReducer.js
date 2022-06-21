@@ -20,6 +20,8 @@ export const selectedExcerciseReducer = (
   switch (type) {
     case ActionTypes.SELECT_EXCERCISE:
       return { current: payload };
+    case ActionTypes.REMOVE_SELECTED_EXCERCISE:
+      return {};
     default:
       return state;
   }

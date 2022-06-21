@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
+import ReactPaginate from 'react-paginate';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { setExcercises } from '../../redux/actions/excerciseActions';
@@ -16,6 +17,7 @@ const SearchSection = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchedExcercises, setSearchedExcercises] = useState([]);
   const [bodyParts, setBodyParts] = useState([]);
+  const [visible, setVisible] = useState(12);
 
   const dispatch = useDispatch();
   const excercises = useSelector((state) => state.allExcercises.excercises);
@@ -72,10 +74,15 @@ const SearchSection = () => {
     setSearchTerm('');
   };
 
+  const setVisiblity = (e) => {
+    e.preventDefault();
+    setVisible((prev) => prev + 4);
+  };
+
   return (
     <section
       id='search'
-      className=' flex flex-col items-center justify-center relative'>
+      className=' flex flex-col items-center justify-center relative mb-12'>
       <h1 className='text-4xl font-semibold mb-6 text-center'>
         Awsome Excercises You <br />
         Should Know
@@ -98,17 +105,25 @@ const SearchSection = () => {
           <SearchIcon />
         </Button>
       </div>
+
       <div
         id='#excercises'
-        className='grid w-full grid-cols-4 justify-items-center overflow-hidden  gap-8 my-8'>
-        {searchedExcercises.slice(0, 12).map((excercise, id) => {
+        className='grid w-full grid-cols-4 justify-items-center overflow-hidden  gap-8 my-12'>
+        {searchedExcercises.slice(0, visible).map((excercise) => {
           return (
-            <Link to={`/excercise/${id}`}>
+            <Link to={`/excercise/${excercise.id}`}>
               <ExcerciseItem data={excercise} />
             </Link>
           );
         })}
       </div>
+      <Button
+        color='error'
+        variant='contained'
+        className='bg-red-600 mb-12'
+        onClick={setVisiblity}>
+        Show more
+      </Button>
     </section>
   );
 };

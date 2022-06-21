@@ -22,7 +22,7 @@ const Nav = () => {
       </Link>
       <Stack direction='row' gap='3rem'>
         <Link
-          to='/'
+          to='/exercise'
           className='hover:text-slate-800 hover:border-b-2 transition ease-in delay-150'>
           Home
         </Link>

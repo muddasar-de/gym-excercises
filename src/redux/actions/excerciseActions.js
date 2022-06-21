@@ -13,3 +13,9 @@ export const selectExcercise = (excercise) => {
     payload: excercise,
   };
 };
+
+export const removeSelectedExcercise = () => {
+  return {
+    type: ActionTypes.REMOVE_SELECTED_EXCERCISE,
+  };
+};

@@ -5,11 +5,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+* {
+  scroll-behavior: smooth;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  color: #f26224 !important;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

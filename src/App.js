@@ -13,7 +13,8 @@ function App() {
       <Nav />
       <Provider store={store}>
         <Routes>
-          <Route path='/' exact element={<Home />} />
+          {/* <Route path='/' exact element={<Home />} /> */}
+          <Route path='/exercise' exact element={<Home />} />
           <Route path='/excercise/:id' exact element={<ExcerciseDetails />} />
         </Routes>
       </Provider>
